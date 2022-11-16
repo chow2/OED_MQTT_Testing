@@ -8,19 +8,18 @@ const options = {
     connectTimeout: 4000,
     // Auth
     clientId: 'emqx_test',
-    username: 'emqx_test',
+    username: 'emqx_test', 
     password: 'emqx_test',
   }
 
-var client = mqtt.connect('mqtt://broker.emqx.io:1883', options);
+var client = mqtt.connect('mqtt://broker.hivemq.com');
 
 // on connect event begin publishing messages every 15 seconds
-client.on("connect", function() {
+client.on('connect', function() {
     setInterval(function() {
         var random = Math.random()*50;
+        client.publish("cameronhowley888", 
+            "Random num published to personal channel: "+ random.toString());
         console.log(random);
-        if (random < 30) {
-            client.publish('test', 'Here is a number: ' + random.toString())
-        }
-    }),15000; 
+    }, 1500); 
 });
