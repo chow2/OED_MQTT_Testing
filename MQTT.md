@@ -1,6 +1,6 @@
 # MQ Telemetry Transport (MQTT) Overview
 
-MQTT is an ISO standard publish-subscribe based messaging protocol that is designed for communications between small sensors and mobile devices that may have limited or unreliable bandwidth. The protocol is event driven and connects devices using the publish-subscribe (Pub/Sub) pattern. The sender (Publisher) and receiver (Subscriber) communicate via Topics and are decoupled from each other. The connection between them is handled by an MQTT broker. The broker filters all incoming messages and distributes them to their specified topic. These topics can be subscribed to by clients who will receive the messages at an interval. 
+MQTT is an [ISO standard](https://www.iso.org/standard/68562.html) publish-subscribe based messaging protocol that is designed for communications between small sensors and mobile devices that may have limited or unreliable bandwidth. The protocol is event driven and connects devices using the publish-subscribe (Pub/Sub) pattern. The sender (Publisher) and receiver (Subscriber) communicate via Topics and are decoupled from each other. The connection between them is handled by an MQTT broker. The broker filters all incoming messages and distributes them to their specified topic. These topics can be subscribed to by clients who will receive the messages at an interval. 
 
 ## Plan:
 * can use single client to subscribe to multiple topics
