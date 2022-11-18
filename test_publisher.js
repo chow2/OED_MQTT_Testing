@@ -16,10 +16,11 @@ var client = mqtt.connect('mqtt://broker.hivemq.com');
 
 // on connect event begin publishing messages every 15 seconds
 client.on('connect', function() {
+    var x = 0;
     setInterval(function() {
-        var random = Math.random()*50;
         client.publish("cameronhowley888", 
-            "Random num published to personal channel: "+ random.toString());
-        console.log(random);
+            "Num published to personal channel: "+ x.toString());
+        console.log(x);
+        x++;
     }, 1500); 
 });
