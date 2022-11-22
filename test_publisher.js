@@ -15,6 +15,7 @@ const options = {
 var client = mqtt.connect('mqtt://broker.hivemq.com');
 
 // on connect event begin publishing messages every 15 seconds
+/*
 client.on('connect', function() {
     var x = 0;
     setInterval(function() {
@@ -24,3 +25,11 @@ client.on('connect', function() {
         x++;
     }, 1500); 
 });
+*/
+
+// for publishing a json file:
+client.on("connect", function(err) {
+    if(err) {
+        
+    }
+})
