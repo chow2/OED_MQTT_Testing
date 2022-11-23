@@ -18,6 +18,13 @@ client.on('connect', function () {
   client.subscribe("cameronhowley888");
   console.log("Client has subscribed successfully");
 });
+  /* parse string message
   client.on('message', function (topic, message) {
     console.log(message.toString());
   });
+  */ 
+  // parse json file
+  client.on('message', function (topic, payload) {
+    const obj = JSON.parse(payload.toString()) // payload is a buffer
+    console.log(obj)
+  })

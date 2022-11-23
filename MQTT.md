@@ -23,3 +23,4 @@ MQTT is an [ISO standard](https://www.iso.org/standard/68562.html) publish-subsc
   * Sparkplug B: provides a consistent way for software providers and equiment manufacturers to share contextual data, not super popular right now but gaining traction
 * does the admin have to input what unit the data is measured in or do we get unit somehow?
   * 
+* 

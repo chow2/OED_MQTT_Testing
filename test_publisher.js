@@ -1,6 +1,8 @@
 // This file creates an MQTT client and connects to the EMQX Cloud Broker
 // Example of publishing to a topic and sending messages
 
+let jsonData = require('./test_data.json');
+
 const mqtt = require('mqtt');
 const options = {
     // Clean session
@@ -28,8 +30,6 @@ client.on('connect', function() {
 */
 
 // for publishing a json file:
-client.on("connect", function(err) {
-    if(err) {
-        
-    }
+client.on("connect", function() {
+    client.publish('cameronhowley888', JSON.stringify(jsonData));
 })
