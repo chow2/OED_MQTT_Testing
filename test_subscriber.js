@@ -34,9 +34,10 @@ client.on('connect', function () {
   client.on('message', function (topic, message, packet) {
     // ensure message from correct topic
     if (topic === 'cameronhowley888') {
-      const obj = JSON.parse(message.toString()) 
-      console.log(packet)
-      console.log(message.toString())
+      const obj = JSON.parse(message.toString())
+      
+      // store data in database
+      console.log(obj)
     }
     
   })
