@@ -37,7 +37,10 @@ client.on('connect', function () {
       const obj = JSON.parse(message.toString())
       
       // store data in database
+      let data = obj.Data
+      let meterNum = obj.MeterNum
       console.log(obj)
+
     }
     
   })
