@@ -1,9 +1,12 @@
-// This file creates an MQTT client and connects to the EMQX Cloud Broker
-// Example of publishing to a topic and sending messages
+// This file creates an MQTT client and connects to the HiveMQ Cloud Broker
+// Example of publishing to a topic
 
 let jsonData = require('./test_data.json');
 
 const mqtt = require('mqtt');
+
+// set options for emqx broker
+/* 
 const options = {
     // Clean session
     clean: true,
@@ -13,6 +16,7 @@ const options = {
     username: 'emqx_test', 
     password: 'emqx_test',
   }
+*/
 
 var client = mqtt.connect('mqtt://broker.hivemq.com');
 
@@ -32,4 +36,5 @@ client.on('connect', function() {
 // for publishing a json file:
 client.on("connect", function() {
     client.publish('cameronhowley888', JSON.stringify(jsonData));
+    console.log("Successfully published file");
 })

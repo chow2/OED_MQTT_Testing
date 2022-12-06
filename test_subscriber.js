@@ -1,7 +1,9 @@
-// This file creates an MQTT client and connects to the EMQX Cloud Broker
+// This file creates an MQTT client and connects to the HiveMQ Cloud Broker
 // Example of subscribing to a topic and receiving messages
 
 const mqtt = require('mqtt');
+
+/*
 const options = {
   // Clean session
   clean: true,
@@ -11,6 +13,8 @@ const options = {
   username: 'emqx_test',
   password: 'emqx_test',
 }
+*/
+
 var client  = mqtt.connect('mqtt://broker.hivemq.com');
 
 // connect to broker
@@ -20,11 +24,19 @@ client.on('connect', function () {
 });
   /* parse string message
   client.on('message', function (topic, message) {
-    console.log(message.toString());
+    if (topic === 'cameronhowley888') {
+      console.log(message.toString());
+    }
+    
   });
   */ 
-  // parse json file
-  client.on('message', function (topic, payload) {
-    const obj = JSON.parse(payload.toString()) // payload is a buffer
-    console.log(obj)
+  // parse json file - message is json, packet contains data about transmission
+  client.on('message', function (topic, message, packet) {
+    // ensure message from correct topic
+    if (topic === 'cameronhowley888') {
+      const obj = JSON.parse(message.toString()) 
+      console.log(packet)
+      console.log(message.toString())
+    }
+    
   })
