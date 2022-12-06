@@ -57,43 +57,31 @@ client.on('connect', function() {
 client.on("connect", function() {
     setInterval(function() {
         // generate random usage readings
-        let val0 = Math.floor(Math.random()*100);
-        let val1 = Math.floor(Math.random()*100);
-        let val2 = Math.floor(Math.random()*100);
-        let val3 = Math.floor(Math.random()*100);
-        let val4 = Math.floor(Math.random()*100);
-        let val5 = Math.floor(Math.random()*100);
-        let val6 = Math.floor(Math.random()*100);
-        let val7 = Math.floor(Math.random()*100);
-        let val8 = Math.floor(Math.random()*100);
-        let val9 = Math.floor(Math.random()*100);
+        var usage_readings = [];
+        for (let i = 0; i < 10; i++) {
+            usage_readings.push(Math.floor(Math.random()*100));
+        }
         
         //format data
-        let l0 = val0.toString() + ", " + printOffsetTime(0);
-        let l1 = val1.toString() + ", " + printOffsetTime(1);
-        let l2 = val2.toString() + ", " + printOffsetTime(2);
-        let l3 = val3.toString() + ", " + printOffsetTime(3);
-        let l4 = val4.toString() + ", " + printOffsetTime(4);
-        let l5 = val5.toString() + ", " + printOffsetTime(5);
-        let l6 = val6.toString() + ", " + printOffsetTime(6);
-        let l7 = val7.toString() + ", " + printOffsetTime(7);
-        let l8 = val8.toString() + ", " + printOffsetTime(8);
-        let l9 = val9.toString() + ", " + printOffsetTime(9);
+        var lines = [];
+        for (let i = 0; i < 10; i++) {
+            lines.push(usage_readings[i] + ", " + printOffsetTime(i));
+        }
 
         // store data in json
         let data = {
             "MeterNum": "1",
             "Data": [
-                    l0,
-                    l1,
-                    l2,
-                    l3,
-                    l4,
-                    l5,
-                    l6,
-                    l7,
-                    l8,
-                    l9
+                    lines[0],
+                    lines[1],
+                    lines[2],
+                    lines[3],
+                    lines[4],
+                    lines[5],
+                    lines[6],
+                    lines[7],
+                    lines[8],
+                    lines[9],
             ]
         }
 
